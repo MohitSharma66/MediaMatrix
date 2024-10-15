@@ -1,0 +1,57 @@
+/* navbar.css */
+
+.nav {
+    margin-bottom: 3rem;
+}
+/* General styles for navigation */
+.nav-logo {
+    margin-right: auto;
+}
+
+.nav-logo img {
+    width: 3.8rem;
+}
+
+.nav-button {
+    width: 120px;
+    height: 40px;
+    border-radius: 40px !important;
+    color: white;
+    background-color: transparent;
+    border: 3px solid #006765;
+    margin-left: auto;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navlist {
+    display: flex;
+    gap: 1rem; 
+    transition: background-color 0.3s ease;
+    background-color: transparent; 
+    padding: 0.5rem 1rem; 
+}
+
+.navlist.black-background {
+    background-color: black;
+    color: white; 
+}
+
+@media (max-width: 600px) {
+    .hamburger-icon {
+        z-index: 10;
+    }
+    .ham {
+        z-index: 100;
+        position: absolute;
+        right: 0;
+    }
+    .nav-button {
+        display: none;
+    }
+    .nav-logo {
+        position: absolute;
+    }
+    .nav-logo img {
+        width: 3.4rem;
+    }
+}
