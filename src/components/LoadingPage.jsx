@@ -82,7 +82,7 @@ const LoadingPage = () => {
             animate="visible"
             whileHover="swirl"
             style={{
-              fontSize: '7rem',  // Smaller size for MATRIX
+              fontSize: '10rem',  // Smaller size for MATRIX
               fontWeight: '800',
               marginRight: '5px',
               display: 'inline-block',

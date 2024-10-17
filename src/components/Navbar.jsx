@@ -125,7 +125,7 @@ function DrawerAppBar(props) {
                 </Button>
               ))} */}
                  <ul style={{display:'flex', justifyContent:"space-between", listStyle:"none", gap:"2.5vh", margin:"1vh", paddingLeft:"0"}} className='nav-list'>
-              <a href="#About Us"><li>About Us</li></a>
+              <a href="/about"><li>About Us</li></a>
               <NavLink to="/past-events"><li>Past Events</li></NavLink>
              <NavLink to="/team"><li>Team</li></NavLink>
               <a href="#FAQ"><li>FAQ</li></a>

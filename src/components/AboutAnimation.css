@@ -1,0 +1,44 @@
+.about-animation-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: white; /* Change to your desired background color */
+}
+
+.big-trees, .left-down, .right-down, .monster, .running {
+    position: absolute;
+    width: auto;
+    height: auto;
+}
+
+.big-trees {
+    top: 0; /* Cover the entire screen from the top */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw; /* Adjust width */
+    height: auto; /* Adjust height */
+}
+
+.left-down {
+    top: 0; /* Keep edge connected to the top */
+    left: 0;
+}
+
+.right-down {
+    top: 0; /* Keep edge connected to the top */
+    right: 0;
+}
+
+.running {
+    top: 50%; /* Adjust as needed */
+    left: -50%; /* Start off-screen */
+    width: 15%; /* Adjust width */
+}
+
+.monster {
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center properly */
+    width: 50vw; /* Adjust width */
+}

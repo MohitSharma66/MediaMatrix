@@ -1,0 +1,6 @@
+body {
+    background-image: url('./assets/DefaultBlue.png');
+    background-position: center;    /* Center the image */
+    background-size: cover;         /* Cover the entire viewport */
+    background-repeat: no-repeat;
+}
