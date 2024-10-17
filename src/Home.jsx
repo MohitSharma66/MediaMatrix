@@ -6,12 +6,12 @@ import './Home.css';
 
 export default function Home() {
     const [loading, setLoading] = useState(true);
-    const [blackBackground, setBlackBackground] = useState(false); // State to manage the black background
+    const [blackBackground, setBlackBackground] = useState(false);
 
     useEffect(() => {
         const timer = setTimeout(() => {
             setLoading(false);
-        }, 4000);
+        }, 5000);
     
         return () => clearTimeout(timer);
     }, []);
@@ -19,11 +19,10 @@ export default function Home() {
     return (
         <div style={{ backgroundColor: blackBackground ? 'black' : '', transition: 'background-color 1s ease' }}>
             {loading ? (
-                <LoadingPage />  // Show loading page while the timer is running
+                <LoadingPage />  
             ) : (
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <Navbar />  {/* Keep Navbar at the top */}
-                    {/* Pass the setBlackBackground function to HomeAnimation */}
+                    <Navbar /> 
                     <HomeAnimation setBlackBackground={setBlackBackground} /> 
                 </div>
             )}

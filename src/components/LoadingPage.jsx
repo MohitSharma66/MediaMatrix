@@ -39,64 +39,90 @@ const LoadingPage = () => {
 
   return (
     <div style={{ 
-      display: 'flex', 
-      flexDirection: 'column', 
-      justifyContent: 'center', 
-      alignItems: 'center', 
+      position: 'relative', 
+      width: '100%', 
       height: '100vh', 
-      backgroundColor: 'black'  // Red background
+      overflow: 'hidden'  // Ensure content stays within the screen
     }}>
-      <div style={{ display: 'flex' }}>
-        {mediaText.map((letter, index) => (
-          <motion.span
-            key={index}
-            custom={randomPositions()} // Assign random positions
-            variants={letterAnimation}
-            initial="hidden"
-            animate="visible"
-            whileHover="swirl"
-            style={{
-              fontSize: '10rem',  // Make MEDIA larger
-              marginRight: '5px',
-              display: 'inline-block',
-              color:"white",
-              whiteSpace: 'pre-line',
-              fontWeight:'800', 
-              fontFamily: 'Anton',
-              WebkitTextStroke: '1px red',
-              WebkitTextFillColor: 'transparent',
-              letterSpacing:'0.3 rem'
-            }}
-          >
-            {letter}
-          </motion.span>
-        ))}
-      </div>
-      <div style={{ display: 'flex', marginTop: '30px' }}>
-        {matrixText.map((letter, index) => (
-          <motion.span
-            key={index}
-            custom={randomPositions()} // Assign random positions
-            variants={letterAnimation}
-            initial="hidden"
-            animate="visible"
-            whileHover="swirl"
-            style={{
-              fontSize: '10rem',  // Smaller size for MATRIX
-              fontWeight: '800',
-              marginRight: '5px',
-              display: 'inline-block',
-              color:"white",
-              whiteSpace: 'pre-line',
-              fontFamily: 'Anton',
-              WebkitTextStroke: '1px red',
-              WebkitTextFillColor: 'transparent',
-              letterSpacing:'0.3 rem'
-            }}
-          >
-            {letter}
-          </motion.span>
-        ))}
+      {/* Video background */}
+      <video 
+        autoPlay 
+        loop 
+        muted 
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover', // Ensures the video covers the entire area
+          zIndex: -1  // Sends the video to the background
+        }}
+      >
+        <source src="src\assets\LoadingPageBackground.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      <div style={{ 
+        display: 'flex', 
+        flexDirection: 'column', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        height: '100vh', 
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',  
+      }}>
+        <div style={{ display: 'flex' }}>
+          {mediaText.map((letter, index) => (
+            <motion.span
+              key={index}
+              custom={randomPositions()} 
+              variants={letterAnimation}
+              initial="hidden"
+              animate="visible"
+              whileHover="swirl"
+              style={{
+                fontSize: '10rem',  // Make MEDIA larger
+                marginRight: '5px',
+                display: 'inline-block',
+                color: "white",
+                whiteSpace: 'pre-line',
+                fontWeight: '800', 
+                fontFamily: 'Anton',
+                WebkitTextStroke: '1.8px red',
+                WebkitTextFillColor: 'transparent',
+                letterSpacing: '0.3rem',
+              }}
+            >
+              {letter}
+            </motion.span>
+          ))}
+        </div>
+        <div style={{ display: 'flex', marginTop: '30px' }}>
+          {matrixText.map((letter, index) => (
+            <motion.span
+              key={index}
+              custom={randomPositions()} // Assign random positions
+              variants={letterAnimation}
+              initial="hidden"
+              animate="visible"
+              whileHover="swirl"
+              style={{
+                fontSize: '10rem',  // Smaller size for MATRIX
+                fontWeight: '800',
+                marginRight: '5px',
+                display: 'inline-block',
+                color: "white",
+                whiteSpace: 'pre-line',
+                fontFamily: 'Anton',
+                WebkitTextStroke: '1.8px red',
+                WebkitTextFillColor: 'transparent',
+                letterSpacing: '0.3rem',
+              }}
+            >
+              {letter}
+            </motion.span>
+          ))}
+        </div>
       </div>
     </div>
   );
