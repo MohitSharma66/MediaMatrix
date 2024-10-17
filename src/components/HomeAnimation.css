@@ -19,6 +19,12 @@
     max-width: 80%;
 }
 
+.Cycle {
+    position: absolute;
+    bottom: 0;
+    max-width: 80%;
+}
+
 .path {
     position: absolute;
     bottom: -5vh;  /* Appears just below the kids */
@@ -51,15 +57,19 @@
 .left-tree, .right-tree {
     position: absolute;
     bottom: 0;
-    width: 30%; /* Adjust width as needed */
+    width: 30%;
+     /* Adjust width as needed */
 }
 
 .left-tree {
     width: 50%; /* Increase the width to make the left tree larger */
-    height: auto;   
+    height: auto;
+    bottom: -50vh;
     right: 55%; /* Adjusted to ensure better alignment */
 }
 
 .right-tree {
-    right: 5%; /* Adjusted to ensure better alignment */
+    right: 5%;
+    bottom: -5vh;
+     /* Adjusted to ensure better alignment */
 }

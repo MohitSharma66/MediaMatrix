@@ -17,34 +17,34 @@ export default function HomeAnimation({ setBlackBackground }) {
         }, 1500); 
     
         const treesExitTimeout = setTimeout(() => {
-            setTreesExit(true); 
+            setTreesExit(true);
+            setKidsReturn(true);
         }, 3500); 
     
         const hideElementsTimeout = setTimeout(() => {
             setShowTrees(false); 
-            setShowEverything(true);
-            setKidsReturn(true); 
+            setShowEverything(true); 
         }, 4500); 
     
         const alienAppearTimeout = setTimeout(() => {
             setAlienAppears(true); 
-        }, 7800); 
+        }, 7000); 
     
         const blackBackgroundTimeout = setTimeout(() => {
             setKidsReturn(false); 
             setAlienAppears(false); 
             setShowEverything(false); 
             setBlackBackground(true);  
-        }, 11000); 
+        }, 10000); 
     
         const treeTrunkTimeout = setTimeout(() => {
             setShowTreeTrunk(true); 
-        }, 11500);
+        }, 11000);
     
         const resetTimeout = setTimeout(() => {
             setShowTreeTrunk(false); 
             setBlackBackground(false); 
-        }, 14500); 
+        }, 14000); 
     
         return () => {
             clearTimeout(kidsTimeout);
@@ -65,24 +65,24 @@ export default function HomeAnimation({ setBlackBackground }) {
                         src="src/assets/BigTrees.png"
                         alt="Big Trees"
                         className="big-trees"
-                        initial={{ y: '200vh' }} 
-                        animate={{ y: treesExit ? '-200vh' : '0vh' }} 
+                        initial={{ scale: 2 }} // Start big (not visible)
+                        animate={{ scale: treesExit ? 3 : 1 }} // Shrinks to normal size
                         transition={{ duration: 1.5, ease: "easeInOut" }}
                     />
                     <motion.img
                         src="src/assets/Left.png"
                         alt="Left Tree"
                         className="left-tree"
-                        initial={{ y: '200vh' }} 
-                        animate={{ y: treesExit ? '-200vh' : '48vh' }} 
+                        initial={{ x: '-100vw' }} // Start from the left
+                        animate={{ x: treesExit ? '-100vw' : '0vw' }} // Moves in and exits the same way
                         transition={{ duration: 1.5, ease: "easeInOut" }} 
                     />
                     <motion.img
                         src="src/assets/Right.png"
                         alt="Right Tree"
                         className="right-tree"
-                        initial={{ y: '200vh' }} 
-                        animate={{ y: treesExit ? '-200vh' : '3vh' }} 
+                        initial={{ x: '100vw' }} // Start from the right
+                        animate={{ x: treesExit ? '100vw' : '0vw' }} // Moves in and exits the same way
                         transition={{ duration: 1.5, ease: "easeInOut" }} 
                     />
                 </>
@@ -90,10 +90,10 @@ export default function HomeAnimation({ setBlackBackground }) {
 
             {showKids && (
                 <motion.img
-                    src="src/assets/kids.png"
-                    alt="Kids"
-                    className="kids"
-                    initial={{ x: '-100vw' }} 
+                    src="src/assets/Cycle.png"
+                    alt="Cycle"
+                    className="Cycle"
+                    initial={{ x: '-100vw', y: '35vh'}} 
                     animate={{ x: ['-100vw', '0vw', '100vw'] }} 
                     transition={{
                         duration: 3, 
@@ -109,8 +109,8 @@ export default function HomeAnimation({ setBlackBackground }) {
                         src="src/assets/kids.png"
                         alt="Kids"
                         className="kids"
-                        initial={{ x: '-100vw' }} 
-                        animate={{ x: ['-100vw', '0vw'] }} 
+                        initial={{ y: '100vh' }} 
+                        animate={{ y: ['100vh', '0vh'] }} 
                         transition={{
                             duration: 3, 
                             ease: "easeInOut",
@@ -128,24 +128,27 @@ export default function HomeAnimation({ setBlackBackground }) {
                 </>
             )}
 
-            {alienAppears && (
-                <motion.img
-                    src="src/assets/CloseAlien.png"
-                    alt="Alien"
-                    className="alien"
-                    initial={{ y: '-30vh', scale: 1.8, opacity: 0.5 }} 
-                    animate={{ y: '-5vh', scale: 1, opacity: 1 }} 
-                    transition={{
-                        duration: 3,       
-                        ease: "easeInOut",
-                    }}
-                    onAnimationComplete={() => {
-                        setTimeout(() => {
-                            setAlienAppears(false);
-                        }, 1000);
-                    }}
-                />
-            )}
+{alienAppears && (
+    <motion.img
+        src="src/assets/CloseAlien.png"
+        alt="Alien"
+        className="alien"
+        initial={{ y: '-30vh', scale: 1.8, opacity: 0 }}  // Start fully transparent
+        animate={{ y: '-5vh', scale: 1, opacity: 1 }}  // Smoothly increase opacity and scale
+        exit={{ opacity: 0 }}  // Fade out when the animation ends
+        transition={{
+            duration: 3,  // Total duration for the animation
+            ease: "easeInOut",
+            opacity: { duration: 2 },  // Opacity fades in over 2 seconds for a smooth entrance
+        }}
+        onAnimationComplete={() => {
+            setTimeout(() => {
+                setAlienAppears(false);
+            }, 1000);
+        }}
+    />
+)}
+
 
             {showTreeTrunk && (
                 <motion.img

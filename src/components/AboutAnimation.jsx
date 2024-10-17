@@ -3,115 +3,112 @@ import { useEffect, useState } from 'react';
 import './AboutAnimation.css';
 
 export default function AboutAnimation({ setBlackBackground }) {
-    const [showInitialImages, setShowInitialImages] = useState(false);
+    const [showTrees, setShowTrees] = useState(false); 
     const [showRunning, setShowRunning] = useState(false);
-    const [showMonster, setShowMonster] = useState(false);
-    const [isBlackBackground, setIsBlackBackground] = useState(false); // State for black background
+    const [treesExit, setTreesExit] = useState(false); 
+    const [showMonster, setShowMonster] = useState(false); 
 
     useEffect(() => {
-        // Show black background immediately and stay for 1 second
-        setBlackBackground(true);
-        const blackBgTimeout = setTimeout(() => {
-            setBlackBackground(false);
-            setShowInitialImages(true); // Show initial images after 1 second
-        }, 1000);
+        // Set black background for 1 second
+        const blackBackgroundTimeout = setTimeout(() => {
+            setBlackBackground(false);  // Revert background after 1 second
+            setShowTrees(true);  // Show trees after the background turns back to normal
+        }, 1000); 
 
-        // Set the initial images to appear after 1 second
-        const initialImagesTimeout = setTimeout(() => {
-            setShowInitialImages(true);
-        }, 1000);
-
-        // Show Running image after 2 seconds
+        // Show running image after trees appear
         const runningTimeout = setTimeout(() => {
             setShowRunning(true);
-        }, 2000);
+        }, 2500); 
 
-        // Hide Running and show Monster after 4 seconds
+        // Trees disappear sideways after running image is shown
+        const treesExitTimeout = setTimeout(() => {
+            setTreesExit(true);
+            setShowRunning(false);  // Running image moves off screen
+        }, 5000); 
+
+        // Show monster image after trees disappear
         const monsterTimeout = setTimeout(() => {
-            setShowRunning(false);
             setShowMonster(true);
-        }, 4000);
+        }, 7000); 
 
-        // Hide Monster and change to black background after 6 seconds
-        const blackBgAgainTimeout = setTimeout(() => {
+        // Monster disappears after 2 seconds
+        const monsterDisappearTimeout = setTimeout(() => {
             setShowMonster(false);
             setBlackBackground(true);
-        }, 6000);
+        }, 9000); 
 
-        // Reset black background after 7 seconds
-        const resetBgTimeout = setTimeout(() => {
+        const blackbackgroundTimeout = setTimeout(() => {
             setBlackBackground(false);
-        }, 7000);
+        }, 10000);
 
-        // Cleanup timeouts on component unmount
+        // Clear timeouts when component unmounts
         return () => {
-            clearTimeout(blackBgTimeout);
-            clearTimeout(initialImagesTimeout);
+            clearTimeout(blackBackgroundTimeout);
             clearTimeout(runningTimeout);
+            clearTimeout(treesExitTimeout);
             clearTimeout(monsterTimeout);
-            clearTimeout(blackBgAgainTimeout);
-            clearTimeout(resetBgTimeout);
+            clearTimeout(monsterDisappearTimeout);
+            clearTimeout(blackbackgroundTimeout);
         };
     }, [setBlackBackground]);
 
     return (
-        <div className="about-animation-container">
-            {/* Render the initial images */}
-            {showInitialImages && (
+        <div className="animation-container">
+            {showTrees && (
                 <>
-                    {/* Big Trees Image */}
                     <motion.img
                         src="src/assets/BigTreesDown.png"
-                        alt="Big Trees Down"
-                        className="big-trees"
-                        initial={{ scale: 5, opacity: 0, y: "-100%" }}
-                        animate={{ scale: 1.74, opacity: 1, y: "0%" }} // Positioned to start off-screen
-                        transition={{ duration: 1, ease: "easeInOut" }}
+                        alt="Big Trees"
+                        className="big-trees-down"
+                        initial={{ scale: 2 }} // Start big (not visible)
+                        animate={{ scale: treesExit ? 3 : 1 }} // Shrinks to normal size
+                        transition={{ duration: 1.5, ease: "easeInOut" }}
                     />
-
-                    {/* Left Down Image */}
                     <motion.img
                         src="src/assets/LeftDown.png"
-                        alt="Left Down"
-                        className="left-down"
-                        initial={{ y: "-100%", opacity: 0 }}
-                        animate={{ y: "0%", opacity: 1 }}
-                        transition={{ duration: 1, ease: "easeInOut" }}
+                        alt="Left Tree"
+                        className="left-tree-down"
+                        initial={{ x: '-100vw' }} // Start from the left
+                        animate={{ x: treesExit ? '-100vw' : '0vw' }} // Moves in and exits the same way
+                        transition={{ duration: 1.5, ease: "easeInOut" }} 
                     />
-
-                    {/* Right Down Image */}
                     <motion.img
                         src="src/assets/RightDown.png"
-                        alt="Right Down"
-                        className="right-down"
-                        initial={{ y: "-100%", opacity: 0 }}
-                        animate={{ y: "0%", opacity: 1 }}
-                        transition={{ duration: 1, ease: "easeInOut" }}
+                        alt="Right Tree"
+                        className="right-tree-down"
+                        initial={{ x: '100vw' }} // Start from the right
+                        animate={{ x: treesExit ? '100vw' : '0vw' }} // Moves in and exits the same way
+                        transition={{ duration: 1.5, ease: "easeInOut" }} 
                     />
                 </>
             )}
 
-            {/* Render the Running image */}
             {showRunning && (
                 <motion.img
-                    src="src/assets/Running.png" // Ensure you have this image
+                    src="src/assets/RunningDown.png"
                     alt="Running"
-                    className="running"
-                    initial={{ x: "-100%", opacity: 1 }}
-                    animate={{ x: "100%", opacity: 0 }}
-                    transition={{ duration: 1, ease: "easeInOut" }} // Runs from left to right
+                    className="running-down"
+                    initial={{ x: '-100vw', y: '0vh' }} 
+                    animate={{ x: ['-100vw', '0vw', '100vw'] }} 
+                    transition={{
+                        duration: 3, 
+                        ease: "easeInOut",
+                        times: [0, 0.5, 1] 
+                    }}
                 />
             )}
 
-            {/* Render the Monster image */}
             {showMonster && (
                 <motion.img
                     src="src/assets/Monster.png"
                     alt="Monster"
-                    className="monster"
+                    className="monster-down"
                     initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1 }} // Fades in
+                    animate={{ opacity: [0, 1, 1, 0] }} 
+                    transition={{
+                        duration: 3, // Appears for 2 seconds, disappears
+                        ease: "easeInOut"
+                    }}
                 />
             )}
         </div>
