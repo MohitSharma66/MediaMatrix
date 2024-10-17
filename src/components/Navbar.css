@@ -13,8 +13,8 @@
 }
 
 .nav-button {
-    width: 120px;
-    height: 40px;
+    width: 300px;
+    height: 100px;
     border-radius: 40px !important;
     color: white;
     background-color: transparent;
@@ -23,13 +23,41 @@
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.navlist {
+/* Center the navbar items */
+/* Set navbar width to full and center nav links */
+.nav-list {
     display: flex;
-    gap: 1rem; 
-    transition: background-color 0.3s ease;
-    background-color: transparent; 
-    padding: 0.5rem 1rem; 
+    justify-content: center; /* Center the nav links horizontally */
+    align-items: center; /* Center the nav links vertically */
+    width: 100%; /* Full width */
+    list-style: none; /* Remove list bullets */
+    gap: 3rem; /* Adjust gap between links as needed */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
 }
+
+/* Styling for navigation links */
+.nav li {
+    padding: 10px; /* Optional padding around links */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem; /* Adjust the font size */
+    color: white; /* Adjust text color */
+    text-align: center;
+}
+
+/* Hover effect for links */
+.nav li:hover {
+    color: #ffcc00; /* Change link color on hover */
+}
+
+/* Full width responsive behavior */
+@media (max-width: 600px) {
+    .nav-list {
+        flex-direction: column; /* Stack items vertically on small screens */
+        gap: 1rem;
+    }
+}
+
 
 .navlist.black-background {
     background-color: black;

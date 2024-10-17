@@ -3,19 +3,17 @@ import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Hamburger from 'hamburger-react';
 import PropTypes from 'prop-types';
 import * as React from 'react';
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 
-const navItems = ['About Us', 'Past Event', 'Team', 'FAQ', 'Contact Us'];
+const navItems = ['Home', 'About', 'Event', 'Contact'];
 
 function DrawerAppBar(props) {
   const { window } = props;
@@ -49,6 +47,27 @@ function DrawerAppBar(props) {
     }
   }, [window]);
 
+  const rgbaColor = (color, opacity) => {
+    const hexToRgb = (hex) => {
+      let r = 0, g = 0, b = 0;
+      // 3 digits
+      if (hex.length === 4) {
+        r = parseInt(hex[1] + hex[1], 16);
+        g = parseInt(hex[2] + hex[2], 16);
+        b = parseInt(hex[3] + hex[3], 16);
+      }
+      // 6 digits
+      else if (hex.length === 7) {
+        r = parseInt(hex[1] + hex[2], 16);
+        g = parseInt(hex[3] + hex[4], 16);
+        b = parseInt(hex[5] + hex[6], 16);
+      }
+      return `${r}, ${g}, ${b}`;
+    };
+  
+    return `rgba(${hexToRgb(color)}, ${opacity})`;
+  };
+
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <div className="ham-head" style={{ display: "flex" }}>
@@ -58,18 +77,10 @@ function DrawerAppBar(props) {
       </div>
       <Divider />
       <List>
-        {/* {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }} href={`#${item}`} onClick={() => setOpen(prev => !prev)}>
-              <ListItemText primary={item} disableTypography={true} sx={{ fontFamily: "Montserrat" }} />
-            </ListItemButton>
-          </ListItem>
-        ))} */}
-         <ListItem><ListItemButton href="#About Us" onClick={()=>setOpen(false)}>About Us</ListItemButton></ListItem>
-         <NavLink to="/past-events"><ListItem><ListItemButton onClick={()=>setOpen(false)}>Past Events</ListItemButton></ListItem></NavLink>
-        <NavLink to="/team"><ListItem><ListItemButton onClick={()=>setOpen(false)}>Team</ListItemButton></ListItem></NavLink>
-        <ListItem><ListItemButton href="#FAQ" onClick={()=>setOpen(false)}>FAQ</ListItemButton></ListItem>
-        <ListItem><ListItemButton href="#Contact Us" onClick={()=>setOpen(false)}>Contact Us</ListItemButton></ListItem>
+         <ListItem><ListItemButton href="#Event" onClick={()=>setOpen(false)}>Event</ListItemButton></ListItem>
+        <NavLink to="/about"><ListItem><ListItemButton onClick={()=>setOpen(false)}>About</ListItemButton></ListItem></NavLink>
+        <NavLink to="/"><ListItem><ListItemButton onClick={()=>setOpen(false)}>Home</ListItemButton></ListItem></NavLink>
+        <ListItem><ListItemButton href="#Contact" onClick={()=>setOpen(false)}>Contact</ListItemButton></ListItem>
       </List>
     </Box>
   );
@@ -80,61 +91,40 @@ function DrawerAppBar(props) {
     <div className='nav'>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
-        <AppBar component="nav" sx={{
-          height: "8vh",
-          background: backgroundColor, 
-          display: "flex",
-          justifyContent: "center",
-          boxShadow: "0",
-          zIndex: "1201",
-          transition: "background 0.3s ease"
-        }}>
-          <Toolbar>
-            <div className="ham">
-              <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                edge="start"
-                onClick={handleDrawerToggle}
-                sx={{ mr: 2, display: { sm: 'none' }, zIndex: "1201" }}
-              >
-                <Hamburger toggled={isOpen} toggle={setOpen}
-                  aria-label="open drawer"
-                  edge="start"
-                  className="hamburger-icon"
-                  sx={{ zIndex: "1201" }}
-                />
-              </IconButton>
-            </div>
-            {/* <div className="nav-logo">
-              <img src={Logo} alt="Logo" />
-            </div> */}
-            <Box sx={{ display: { xs: 'none', sm: 'flex', background: "transparent",
-                    borderRadius: "20px",
-                    boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
-                    backdropFilter: "blur(5.4px)",
-                    webkitBackdropFilter: "blur(5.4px)",
-                     marginRight:"auto", gap:"2vh",padding:"0.5vh",border: "3px solid #006765",margin:"auto"} }}>
-              {/* {navItems.map((item) => (
-                <Button 
-                  key={item} 
-                  sx={{ color: navlistColor, fontFamily: "Montserrat"}}
-                  href={`#${item}`}
-                >
-                  {item}
-                </Button>
-              ))} */}
-                 <ul style={{display:'flex', justifyContent:"space-between", listStyle:"none", gap:"2.5vh", margin:"1vh", paddingLeft:"0"}} className='nav-list'>
-              <a href="/about"><li>About Us</li></a>
-              <NavLink to="/past-events"><li>Past Events</li></NavLink>
-             <NavLink to="/team"><li>Team</li></NavLink>
-              <a href="#FAQ"><li>FAQ</li></a>
-              <a href="#Contact Us"><li>Contact Us</li></a>
-            </ul>
-            </Box>
-            {/* <button className='nav-button'>Contact Us</button> */}
-          </Toolbar>
-        </AppBar>
+        <AppBar
+  component="nav"
+  sx={{
+    height: "8vh",
+    width: "100%", // Full width of screen
+    background: backgroundColor,
+    boxShadow: "0",
+    zIndex: "1201",
+    transition: "background 0.3s ease",
+  }}
+>
+  <Toolbar sx={{ display: "flex", justifyContent: "center", width: "100%" }}>
+    <Box 
+      sx={{
+        display: { xs: 'none', sm: 'flex' },
+        width: '100%',
+        background: "transparent",
+        gap: "2rem",
+        border: `3px solid ${rgbaColor(backgroundColor, 2)}`,
+        borderBottomLeftRadius: "20px",
+        borderBottomRightRadius: "20px",
+        padding: "1vh",
+      }}
+    >
+      <ul className="nav-list">
+        <NavLink to="/"><li>Home</li></NavLink>
+        <NavLink to="/about"><li>About</li></NavLink>
+        <a href="#Event"><li>Event</li></a>
+        <a href="#Contact"><li>Contact</li></a>
+      </ul>
+    </Box>
+  </Toolbar>
+</AppBar>
+
         <nav>
           <Drawer
             container={container}
@@ -154,7 +144,7 @@ function DrawerAppBar(props) {
                 boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
                 backdropFilter: "blur(6px)",
                 webkitBackdropFilter: "blur(6px)",
-                border: "1px solid rgba(88, 0, 140, 0.3)",
+                border: "1px solid red",
                 color: "white",
                 zIndex: "1"
               }
