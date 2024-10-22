@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import './About.css';
-import AboutAnimation from './components/AboutAnimation.jsx';
+import './Event.css';
+import EventAnimation from './components/EventAnimation.jsx';
 import Navbar from './components/Navbar.jsx';
 
 export default function About() {
@@ -10,7 +10,7 @@ export default function About() {
         <div className='about'>
             <div style={{ backgroundColor: blackBackground ? 'black' : '', transition: 'background-color 1s ease'}}>
                 <Navbar />
-                <AboutAnimation setBlackBackground={setBlackBackground} /> 
+                <EventAnimation setBlackBackground={setBlackBackground} /> 
             </div>
         </div>
         

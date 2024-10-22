@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import './AboutAnimation.css';
+import './EventAnimation.css';
 
-export default function AboutAnimation({ setBlackBackground }) {
+export default function EventAnimation({ setBlackBackground }) {
     const [showTrees, setShowTrees] = useState(false); 
     const [showRunning, setShowRunning] = useState(false);
     const [treesExit, setTreesExit] = useState(false); 

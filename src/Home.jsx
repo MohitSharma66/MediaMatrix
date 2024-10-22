@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import HomeAnimation from './components/HomeAnimation.jsx'; // Import HomeAnimation component
+import AboutIIITNR from './components/AboutIIITNR.jsx';
+import AboutMediaMatrix from './components/AboutMediaMatrix.jsx';
+import HomeAnimation from './components/HomeAnimation.jsx';
 import LoadingPage from './components/LoadingPage.jsx';
 import Navbar from './components/Navbar.jsx';
 import './Home.css';
@@ -24,6 +26,8 @@ export default function Home() {
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <Navbar /> 
                     <HomeAnimation setBlackBackground={setBlackBackground} /> 
+                    <AboutIIITNR />
+                    <AboutMediaMatrix />
                 </div>
             )}
         </div>
