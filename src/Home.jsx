@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import AboutIIITNR from './components/AboutIIITNR.jsx';
-import AboutMediaMatrix from './components/AboutMediaMatrix.jsx';
-import HomeAnimation from './components/HomeAnimation.jsx';
+import { useEffect, useState } from 'react';
+import Animation from './components/Animation.jsx';
 import LoadingPage from './components/LoadingPage.jsx';
 import Navbar from './components/Navbar.jsx';
 import './Home.css';
@@ -19,16 +17,16 @@ export default function Home() {
     }, []);
 
     return (
-        <div style={{ backgroundColor: blackBackground ? 'black' : '', transition: 'background-color 1s ease' }}>
+        <div style={{ position: 'relative', backgroundColor: blackBackground ? 'black' : '', transition: 'background-color 1s ease', height: 'auto' }}>
             {loading ? (
                 <LoadingPage />  
             ) : (
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <Navbar /> 
-                    <HomeAnimation setBlackBackground={setBlackBackground} /> 
-                    <AboutIIITNR />
-                    <AboutMediaMatrix />
-                </div>
+                <>
+                    <Animation setBlackBackground={setBlackBackground} />
+                    <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                        <Navbar />
+                    </div>
+                </>
             )}
         </div>
     );

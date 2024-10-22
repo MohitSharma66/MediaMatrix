@@ -1,7 +1,7 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import React from 'react';
-import './AboutIIITNR.css'; //importing About IIITNR.css because of same classnames
+import './AboutMediaMatrix.css'; //importing About IIITNR.css because of same classnames
 
 AOS.init({once:true});
 const AboutMediaMatrix = () => {
