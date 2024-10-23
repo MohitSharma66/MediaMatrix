@@ -1,6 +1,7 @@
 .about {
     background-image: url('./assets/DefaultBlue.png');
     background-position: center;    /* Center the image */
-    background-size: cover;         /* Cover the entire viewport */
+    background-size: cover;
+    height: 100vh;         /* Cover the entire viewport */
     background-repeat: no-repeat;
 }

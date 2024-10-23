@@ -1,3 +1,4 @@
+/* General styles */
 .div {
     background-color: transparent;
     color: white;
@@ -10,28 +11,93 @@
     justify-content: center;
 }
 
+/* About Us Section */
+.about-us {
+    background: linear-gradient(to bottom right, #8B0000, #4B0000);
+    color: #f0f0f0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.about-us-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-us-title {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.about-us-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.about-us-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.about-us-highlight {
+    font-weight: 600;
+}
+
+.about-us-logo {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-us-logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Merged media queries */
+@media (min-width: 768px) {
+    .about-us-flex {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .about-us-logo {
+        max-width: 300px;
+    }
+}
+
+/* About Us container */
 .about-container {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    gap: 2rem; 
+    gap: 2rem;
     width: 85%;
     box-sizing: border-box;
 }
 
 .text-container {
-    flex: 1; 
-    max-width: 40%; 
+    flex: 1;
+    max-width: 40%;
     text-align: center;
-    padding: 0 1rem; 
+    padding: 0 1rem;
 }
 
 .text-center {
     font-family: 'Cinzel', 'sans-serif';
     font-weight: 900;
     line-height: 1.4;
-    font-size: 2.2rem; 
+    font-size: 2.2rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     letter-spacing: 1px;
     color: white;
@@ -41,11 +107,12 @@
     font-family: 'Mont';
     font-weight: 200;
     text-align: justify;
-    font-size: 1.2rem; 
+    font-size: 1.2rem;
     line-height: 1.6;
     color: white;
 }
 
+/* Responsive Design */
 @media only screen and (max-width: 1300px) {
     .text-center {
         font-size: 2rem;
@@ -55,7 +122,7 @@
         font-size: 1.2rem;
         line-height: 1.15;
     }
-    }
+}
 
 @media only screen and (max-width: 1024px) {
     .about-container {

@@ -2,11 +2,11 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import './EventAnimation.css';
 
-export default function EventAnimation({ setBlackBackground }) {
+export default function EventAnimation({ setBlackBackground, onAnimationComplete }) {
     const [showTrees, setShowTrees] = useState(false); 
     const [showRunning, setShowRunning] = useState(false);
     const [treesExit, setTreesExit] = useState(false); 
-    const [showMonster, setShowMonster] = useState(false); 
+    const [showMonster, setShowMonster] = useState(false);
 
     useEffect(() => {
         // Set black background for 1 second
@@ -39,6 +39,7 @@ export default function EventAnimation({ setBlackBackground }) {
 
         const blackbackgroundTimeout = setTimeout(() => {
             setBlackBackground(false);
+            onAnimationComplete();
         }, 10000);
 
         // Clear timeouts when component unmounts

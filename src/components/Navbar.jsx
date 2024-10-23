@@ -78,7 +78,7 @@ function DrawerAppBar(props) {
       <Divider />
       <List>
          <ListItem><ListItemButton href="/event" onClick={()=>setOpen(false)}>Event</ListItemButton></ListItem>
-        <NavLink to="#About"><ListItem><ListItemButton onClick={()=>setOpen(false)}>About</ListItemButton></ListItem></NavLink>
+        <NavLink to="#About Us"><ListItem><ListItemButton onClick={()=>setOpen(false)}>About</ListItemButton></ListItem></NavLink>
         <NavLink to="/"><ListItem><ListItemButton onClick={()=>setOpen(false)}>Home</ListItemButton></ListItem></NavLink>
         <ListItem><ListItemButton href="#Contact" onClick={()=>setOpen(false)}>Contact</ListItemButton></ListItem>
       </List>
@@ -117,7 +117,7 @@ function DrawerAppBar(props) {
     >
       <ul className="nav-list">
         <NavLink to="/"><li>Home</li></NavLink>
-        <NavLink to="#About"><li>About</li></NavLink>
+        <NavLink to="#About Us"><li>About</li></NavLink>
         <a href="/event"><li>Event</li></a>
         <a href="#Contact"><li>Contact</li></a>
       </ul>

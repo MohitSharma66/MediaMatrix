@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import './Animation.css';
 
 export default function Animation({ setBlackBackground }) {
-  const [scrollPosition, setScrollPosition] = useState(1);
+  const [scrollPosition, setScrollPosition] = useState(0);
   const [showFrames, setShowFrames] = useState({
     frame1: false,
     frame2: false,
@@ -34,9 +34,9 @@ export default function Animation({ setBlackBackground }) {
 
   return (
     <div className="animation-container">
-      {showFrames.frame1 && (
-        <div className="frame">
-          <motion.img
+        <div className={`frame ${showFrames.frame1 ? 'visible' : 'hidden'}`}>
+          {<>
+            <motion.img
             src="src/assets/BigTrees.png"
             alt="Big Trees"
             className="big-trees"
@@ -71,13 +71,15 @@ export default function Animation({ setBlackBackground }) {
               times: [0, 1],
             }}
           />
+          </>}
           <h1 className="frame-title">Frame 1 Title</h1>
         </div>
-      )}
 
-      {showFrames.frame2 && (
-        <div className="frame">
-          <motion.img
+      
+        <div className={`frame ${showFrames.frame2 ? 'visible' : 'hidden'}`}>
+          {
+          <>
+            <motion.img
             src="src/assets/kids.png"
             alt="Kids"
             className="kids"
@@ -97,13 +99,16 @@ export default function Animation({ setBlackBackground }) {
             animate={{ y: '10vh' }}
             transition={{ duration: 3, ease: 'easeInOut' }}
           />
+          </>
+      }
           <h1 className="frame-title">Frame 2 Title</h1>
         </div>
-      )}
 
-      {showFrames.frame3 && (
-        <div className="frame">
-          <motion.img
+      
+        <div className={`frame ${showFrames.frame3 ? 'visible' : 'hidden'}`}>
+          {
+            <>
+            <motion.img
             src="src/assets/kids.png"
             alt="Kids"
             className="kids"
@@ -135,14 +140,15 @@ export default function Animation({ setBlackBackground }) {
               ease: 'easeInOut',
               opacity: { duration: 2 },
             }}
-          />
+            />
+          </>}
           <h1 className="frame-title">Frame 3 Title</h1>
         </div>
-      )}
 
-      {showFrames.frame4 && (
-        <div className="frame">
-          <motion.img
+      
+        <div className={`frame ${showFrames.frame4 ? 'visible' : 'hidden'}`}>
+          {
+            <motion.img
             src="src/assets/treetrunk.png"
             alt="Tree Trunk"
             className="treetrunk"
@@ -151,10 +157,9 @@ export default function Animation({ setBlackBackground }) {
               opacity: [0, 1, 0.5, 1, 0.5, 1, 0.5, 1, 0.5, 1, 0.5, 1, 0],
             }}
             transition={{ duration: 3, ease: 'easeInOut' }}
-          />
+          />}
           <h1 className="frame-title">Frame 4 Title</h1>
         </div>
-      )}
     </div>
   );
 }

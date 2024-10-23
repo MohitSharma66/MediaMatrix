@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import './HomeAnimation.css';
 
-export default function HomeAnimation({ setBlackBackground }) {
+export default function HomeAnimation({ setBlackBackground, onAnimationComplete }) {
     const [showTreeTrunk, setShowTreeTrunk] = useState(false);
     const [showEverything, setShowEverything] = useState(false); 
     const [showKids, setShowKids] = useState(false); 
@@ -10,6 +10,7 @@ export default function HomeAnimation({ setBlackBackground }) {
     const [showTrees, setShowTrees] = useState(true); 
     const [kidsReturn, setKidsReturn] = useState(false); 
     const [alienAppears, setAlienAppears] = useState(false); 
+    const [animationFinished, setAnimationFinished] = useState(false); // New state
 
     const startAnimation = () => {
         // Reset all states
@@ -54,17 +55,13 @@ export default function HomeAnimation({ setBlackBackground }) {
         setTimeout(() => {
             setShowTreeTrunk(false); 
             setBlackBackground(false); 
+            setAnimationFinished(true); // Set animation finished
+            onAnimationComplete(); // Call the callback
         }, 14000);
     };
 
     useEffect(() => {
         startAnimation(); // Start the animation on mount
-        
-        const resetTimeout = setTimeout(() => {
-            startAnimation(); // Restart the animation after it finishes
-        }, 14000); // Match this duration with the total duration of the animation
-
-        return () => clearTimeout(resetTimeout);
     }, [setBlackBackground]);
 
     return (
@@ -120,7 +117,7 @@ export default function HomeAnimation({ setBlackBackground }) {
                         alt="Kids"
                         className="kids"
                         initial={{ y: '100vh' }} 
-                        animate={{ y: ['100vh', '0vh'] }} 
+                        animate ={{ y: ['100vh', '0vh'] }} 
                         transition={{
                             duration: 3, 
                             ease: "easeInOut",
@@ -144,7 +141,7 @@ export default function HomeAnimation({ setBlackBackground }) {
                     alt="Alien"
                     className="alien"
                     initial={{ y: '-30vh', scale: 1.8, opacity: 0 }}  
-                    animate={{ y: '-5vh', scale: 1, opacity: 1 }}  
+                    animate={{ y: '-5vh', scale: 1 , opacity: 1 }}  
                     exit={{ opacity: 0 }}  
                     transition={{
                         duration: 3,  
