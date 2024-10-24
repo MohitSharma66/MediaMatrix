@@ -1,6 +1,7 @@
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { useEffect, useState } from 'react';
 import AboutMediaMatrix from './components/AboutMediaMatrix.jsx';
-import BroadcastBattlefieldCarousel from './components/BroadcastBattlefieldCarousel.jsx';
 import HomeAnimation from './components/HomeAnimation.jsx';
 import LoadingPage from './components/LoadingPage.jsx';
 import LogoName from './components/LogoName.jsx';
@@ -17,7 +18,9 @@ export default function Home() {
         const timer = setTimeout(() => {
             setLoading(false);
         }, 5000);
-    
+
+        AOS.init({ duration: 1000 });
+        
         return () => clearTimeout(timer);
     }, []);
 
@@ -42,13 +45,15 @@ export default function Home() {
                 <>
                     <Navbar />
                     {animationFinished === false && (
-                        <HomeAnimation setBlackBackground={setBlackBackground} onAnimationComplete={onAnimationComplete} />
+                        <HomeAnimation setBlackBackground={setBlackBackground} onAnimationComplete={onAnimationComplete}/>
                     )}
                     {animationFinished && (
                         <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center' ,marginTop: '5rem' }}>
                             <LogoName />
                             <AboutMediaMatrix />
-                            <BroadcastBattlefieldCarousel />
+                            <div className="tracks-logo" data-aos='fade-down' style={{marginTop: '3rem', marginBottom: '3rem'}}>
+        `                       <img src="src\assets\TracksHeading.png" style={{ height: '15rem', width: '30rem'}} alt="Tracks Logo" />
+                            </div>
                             <Tracks />
                         </div>
                     )}

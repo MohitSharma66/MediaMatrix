@@ -1,21 +1,25 @@
+'use client';
+
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import React from 'react';
-import './AboutMediaMatrix.css'; //importing About IIITNR.css because of same classnames
+import React, { useEffect, useState } from 'react';
+import './AboutMediaMatrix.css'; // Import the CSS file
 
-const AboutMediaMatrix = () => {
-  React.useEffect(() => {
+export default function AboutMediaMatrix() {
+  const [backgroundColor, setBackgroundColor] = useState('');
+
+  useEffect(() => {
     AOS.init({ once: true });
-  }, []);
+  }, []); // Add an empty dependency array to run once on mount
 
   return (
-    <div className="about-us" id="About Us">
+    <section className="about-us" id="AboutUs" style={{ backgroundColor }}>
       <div className="about-us-content">
-        <h1 className="about-us-title" data-aos="fade-up" data-aos-duration="6000">
+        <h1 className="about-us-title" data-aos="fade-up" data-aos-duration="1000">
           ABOUT US
         </h1>
         <div className="about-us-flex">
-          <div className="about-us-text" data-aos="fade-up" data-aos-duration="3000">
+          <div className="about-us-text" data-aos="fade-up" data-aos-duration="1000">
             <p>
               Media Matrix is a flagship event organized by the Media & IT Cell of IIIT-NR,
               bringing together creative minds and problem solvers across multiple
@@ -23,8 +27,6 @@ const AboutMediaMatrix = () => {
               Turing Test, Debate, eSports, Quiz, Designathon, and Pitching, Media Matrix
               challenges participants to showcase their creativity, communication skills,
               analytical thinking, and technical prowess.
-            </p>
-            <p>
               Whether it's crafting compelling narratives, solving complex puzzles, or designing innovative solutions,
               Media Matrix offers a platform for all.
             </p>
@@ -33,16 +35,16 @@ const AboutMediaMatrix = () => {
               and competition!
             </p>
           </div>
-          <div className="about-us-logo" data-aos="fade-up" data-aos-duration="3000">
-            <img
-              src='src\assets\Logo.png'
-              alt="Media Matrix Logo"
-            />
+          <div className="about-us-logo" data-aos="fade-up" data-aos-duration="1000">
+            <div className="image-container">
+              <img
+                src="src/assets/logo.png"
+                alt="Media Matrix Logo"
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
-};
-
-export default AboutMediaMatrix;
+}

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './Event.css';
-import AboutMediaMatrix from './components/AboutMediaMatrix.jsx';
+import BroadcastBattlefieldCarousel from './components/BroadcastBattlefieldCarousel.jsx';
 import EventAnimation from './components/EventAnimation.jsx';
 import Navbar from './components/Navbar.jsx';
 
@@ -23,7 +23,7 @@ export default function Event() {
                     <EventAnimation setBlackBackground={setBlackBackground} onAnimationComplete={onAnimationComplete} style={{height: '100vh'}}/>
                 ) : (
                     <div style={{ position: 'relative', zIndex: 1 }}>
-                        <AboutMediaMatrix />
+                        <BroadcastBattlefieldCarousel />
                     </div>
                 )}
             </div>

@@ -1,6 +1,6 @@
 .flip-card {
-  width: 300px;
-  height: 300px;
+  width: 80rem;
+  height: 100rem;
   perspective: 1000px;
 }
 
@@ -44,12 +44,13 @@
 }
 
 .flip-card-text {
+  font-size: 8rem;
   width: 90%;
-  max-width: 250px;
+  max-width: 400px;
 }
 
 .days-to-go {
-  font-size: 4rem;
+  font-size: 8rem;
   font-weight: bold;
   margin: 1rem 0;
 }

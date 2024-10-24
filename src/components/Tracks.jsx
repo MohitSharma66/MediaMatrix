@@ -1,3 +1,5 @@
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // Import AOS styles
 import React, { useEffect, useRef } from 'react';
 import './Tracks.css';
 
@@ -12,10 +14,13 @@ const cards = [
   { id: 8, title: "What's Going On", artist: "Marvin Gaye" },
 ];
 
-export default function Tracks() {
+export default function RedMovingCards() {
   const containerRef = useRef(null);
 
   useEffect(() => {
+    // Initialize AOS
+    AOS.init();
+    
     const container = containerRef.current;
     if (!container) return;
 
@@ -37,14 +42,16 @@ export default function Tracks() {
   }, []);
 
   return (
-    <div className="red-moving-cards-container">
-      <div className="red-moving-cards" ref={containerRef}>
-        {[...cards, ...cards].map((card, index) => (
-          <div key={`${card.id}-${index}`} className="card">
-            <h3>{card.title}</h3>
-            <p>{card.artist}</p>
-          </div>
-        ))}
+    <div>
+      <div className="red-moving-cards-container">
+        <div className="red-moving-cards" ref={containerRef}>
+          {[...cards, ...cards].map((card, index) => (
+            <div key={`${card.id}-${index}`} className="card" data-aos="fade-up"> {/* Add AOS animation */}
+              <h3>{card.title}</h3>
+              <p>{card.artist}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

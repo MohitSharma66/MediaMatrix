@@ -21,7 +21,7 @@
 
 .Cycle {
     position: absolute;
-    bottom: -2vh;
+    bottom: -6vh;
     max-width: 80%;
 }
 
@@ -56,7 +56,7 @@
 
 .left-tree, .right-tree {
     position: absolute;
-    bottom: 0;
+    bottom: -10vh;
     width: 30%;
      /* Adjust width as needed */
 }
@@ -64,12 +64,12 @@
 .left-tree {
     width: 50%; /* Increase the width to make the left tree larger */
     height: auto;
-    bottom: -50vh;
+    bottom: -60vh;
     right: 55%; /* Adjusted to ensure better alignment */
 }
 
 .right-tree {
     right: 5%;
-    bottom: -5vh;
+    bottom: -10vh;
      /* Adjusted to ensure better alignment */
 }
