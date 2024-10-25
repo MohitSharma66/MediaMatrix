@@ -74,7 +74,7 @@ function DrawerAppBar(props) {
       </div>
       <Divider />
       <List>
-         <ListItem><ListItemButton href="/event" onClick={()=>setMobileOpen(false)}>Event</ListItemButton></ListItem>
+         <NavLink to="/event"><ListItem><ListItemButton href="/event" onClick={()=>setMobileOpen(false)}>Event</ListItemButton></ListItem></NavLink>
          <a href="https://forms.gle/aEGetCXedtxnXv7cA" target="_blank" rel="noopener noreferrer">
           <ListItem>
           <ListItemButton onClick={() => setMobileOpen(false)}>Registration</ListItemButton>

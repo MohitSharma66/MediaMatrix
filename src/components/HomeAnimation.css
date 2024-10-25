@@ -46,9 +46,9 @@
     top: 40%; /* Move the tree trunk slightly higher up */
     left: 50%; /* Centered horizontally */
     transform: translate(-50%, -50%); /* Adjust for exact centering */
-    width: 100%;
+    width: 80%;
     opacity: 0;
-    height: 80svh;
+    height: 100svh;
 }
 
 .big-trees {
