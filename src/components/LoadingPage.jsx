@@ -81,7 +81,7 @@ const LoadingPage = () => {
               animate="visible"
               whileHover="swirl"
               style={{
-                fontSize: '10rem',  // Make MEDIA larger
+                fontSize: '5rem',  // Make MEDIA larger
                 marginRight: '5px',
                 display: 'inline-block',
                 color: "white",
@@ -107,7 +107,7 @@ const LoadingPage = () => {
               animate="visible"
               whileHover="swirl"
               style={{
-                fontSize: '10rem',  // Smaller size for MATRIX
+                fontSize: '5rem',  // Smaller size for MATRIX
                 fontWeight: '800',
                 marginRight: '5px',
                 display: 'inline-block',

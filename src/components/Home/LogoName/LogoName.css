@@ -1,0 +1,81 @@
+@font-face {
+  font-family: MediaMatrix;
+  src: url('../../../assets/Fonts/ITCBenguiatStdBoldCn.OTF');
+}
+.container-front{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 500px
+}
+
+.container-back{
+  font-family: MediaMatrix;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  color: transparent;   
+  -webkit-text-stroke: 1px red; 
+  text-stroke: 1px red;     
+ width: 500px
+}
+
+.flip-card-logo{
+  width: 200px;
+}
+
+.days-to-go{
+  color: white;
+  font-size: 80px;           
+  color: transparent;   
+  -webkit-text-stroke: 1px red; 
+  text-stroke: 1px red;     
+       
+}
+
+.container-back h1{
+  font-size: 50px;
+}
+
+.container-back h2{
+  font-size: 50px;
+}
+  
+
+.container-front .flip-card-text{
+  width:400px
+}
+
+@media (max-width:720px) {
+  .container-front .flip-card-text{
+    width:280px;
+  }
+
+  .days-to-go{
+    color: white;
+    font-size: 70px;           
+    color: transparent;   
+    -webkit-text-stroke: 1px red; 
+    text-stroke: 1px red;     
+         
+  }
+  
+  .container-back h1{
+    font-size: 40px;
+  }
+  
+  .container-back h2{
+    font-size: 40px;
+  }
+
+  .container-back{
+    width: 350px
+  }
+
+  .container-front{
+    width:350px;
+  }
+}

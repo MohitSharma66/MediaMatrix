@@ -1,6 +1,8 @@
-body {
-    background-image: url('./assets/DefaultRed.png');
-    background-position: center;
-    background-size: cover;         /* Cover the entire viewport */
-    background-repeat: no-repeat;
+.track-text{
+    color: white;
+    font-size: 40px;
+    font-weight: 800;
 }
+
+
+
