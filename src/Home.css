@@ -5,7 +5,7 @@
 }
 
 .home {
-    background-image: url('./assets/DefaultRed.png');
+    background-image: url('/assets/DefaultRed.png');
     background-position: center;    /* Center the image */
     background-size: cover;
     height: 100vh;         /* Cover the entire viewport */

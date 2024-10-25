@@ -1,5 +1,5 @@
 .about {
-    background-image: url('./assets/DefaultBlue.png');
+    background-image: url('/assets/DefaultBlue.png');
     background-position: center;    /* Center the image */
     background-size: cover;
     height: 100vh;         /* Cover the entire viewport */
