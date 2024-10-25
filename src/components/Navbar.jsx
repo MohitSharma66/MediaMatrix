@@ -131,7 +131,7 @@ function DrawerAppBar(props) {
               <ul className="nav-list">
                 <NavLink to="/"><li>Home</li></NavLink>
                 <a href="https://forms.gle/aEGetCXedtxnXv7cA" target="_blank" rel="noopener noreferrer"><li>Registration</li></a>        
-                <a href="/event"><li>Event</li></a>
+                <NavLink to="/event"><li>Event</li></NavLink>
                 <a href="#Contact"><li>Contact</li></a>
               </ul>
             </Box>
