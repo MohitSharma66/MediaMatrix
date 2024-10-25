@@ -38,7 +38,7 @@ export default function AboutMediaMatrix() {
           <div className="about-us-logo" data-aos="fade-up" data-aos-duration="1000">
             <div className="image-container">
               <img
-                src="src/assets/logo.png"
+                src="/assets/Logo.png"
                 alt="Media Matrix Logo"
               />
             </div>

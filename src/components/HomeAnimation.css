@@ -15,7 +15,8 @@
 
 .kids {
     position: absolute;
-    bottom: 0; /* Set kids towards the bottom of the screen */
+    bottom: 0;
+    height: 30svh; /* Set kids towards the bottom of the screen */
     max-width: 80%;
 }
 
@@ -30,7 +31,7 @@
     position: absolute;
     bottom: -5vh;  /* Appears just below the kids */
     width: 95%;    /* Adjust width as needed */
-    height: 50svh;
+    height: 30svh;
 }
 
 .alien {
@@ -45,9 +46,9 @@
     top: 40%; /* Move the tree trunk slightly higher up */
     left: 50%; /* Centered horizontally */
     transform: translate(-50%, -50%); /* Adjust for exact centering */
-    width: 80%;
+    width: 100%;
     opacity: 0;
-    height: 100svh;
+    height: 80svh;
 }
 
 .big-trees {
@@ -68,9 +69,9 @@
 }
 
 .left-tree {
-    width: 50%; /* Increase the width to make the left tree larger */
+    width: 45%; /* Increase the width to make the left tree larger */
     height: auto;
-    bottom: -60vh;
+    bottom: -25vh;
     right: 55%; /* Adjusted to ensure better alignment */
     height: 100svh;
 }

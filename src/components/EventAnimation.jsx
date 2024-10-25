@@ -58,7 +58,7 @@ export default function EventAnimation({ setBlackBackground, onAnimationComplete
             {showTrees && (
                 <>
                     <motion.img
-                        src="src/assets/BigTreesDown.png"
+                        src="/assets\BigTreesDown.png"
                         alt="Big Trees"
                         className="big-trees-down"
                         initial={{ scale: 2 }} // Start big (not visible)
@@ -66,7 +66,7 @@ export default function EventAnimation({ setBlackBackground, onAnimationComplete
                         transition={{ duration: 1.5, ease: "easeInOut" }}
                     />
                     <motion.img
-                        src="src/assets/LeftDown.png"
+                        src="/assets/LeftDown.png"
                         alt="Left Tree"
                         className="left-tree-down"
                         initial={{ x: '-100vw' }} // Start from the left
@@ -74,7 +74,7 @@ export default function EventAnimation({ setBlackBackground, onAnimationComplete
                         transition={{ duration: 1.5, ease: "easeInOut" }} 
                     />
                     <motion.img
-                        src="src/assets/RightDown.png"
+                        src="/assets/RightDown.png"
                         alt="Right Tree"
                         className="right-tree-down"
                         initial={{ x: '100vw' }} // Start from the right
@@ -86,7 +86,7 @@ export default function EventAnimation({ setBlackBackground, onAnimationComplete
 
             {showRunning && (
                 <motion.img
-                    src="src/assets/RunningDown.png"
+                    src="/assets/RunningDown.png"
                     alt="Running"
                     className="running-down"
                     initial={{ x: '-100vw', y: '0vh' }} 
@@ -101,7 +101,7 @@ export default function EventAnimation({ setBlackBackground, onAnimationComplete
 
             {showMonster && (
                 <motion.img
-                    src="src/assets/Monster.png"
+                    src="/assets/Monster.png"
                     alt="Monster"
                     className="monster-down"
                     initial={{ opacity: 0 }}

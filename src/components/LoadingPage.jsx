@@ -59,7 +59,7 @@ const LoadingPage = () => {
           zIndex: -1  // Sends the video to the background
         }}
       >
-        <source src="src\assets\LoadingPageBackground.mp4" type="video/mp4" />
+        <source src="\assets\LoadingPageBackground.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 

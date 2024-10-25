@@ -51,11 +51,11 @@
 
 // export default LogoName;
 
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // Import AOS styles
 import React, { useEffect, useState } from "react";
 import ReactCardFlip from 'react-card-flip';
 import './LogoName.css';
-import AOS from 'aos';
-import 'aos/dist/aos.css'; // Import AOS styles
 
 const TeamMember = ({ image, name, post, linkedin, insta }) => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -88,13 +88,13 @@ const TeamMember = ({ image, name, post, linkedin, insta }) => {
       {/* Front of the card */}
       <div onClick={handleClick} className="container-front" style={{ height: '400px', cursor: "pointer" }}>
         <img
-          src='src/assets/Logo.png'
+          src='/assets/Logo.png'
           alt="Media Matrix Logo"
           className="flip-card-logo"
           data-aos="zoom-in"
         />
         <img
-          src='src/assets/MEDIA MATRIX.png'
+          src='/assets/MEDIA MATRIX.png'
           alt="Media Matrix Text"
           className="flip-card-text"
           data-aos="zoom-in"

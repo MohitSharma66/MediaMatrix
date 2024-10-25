@@ -69,7 +69,7 @@ export default function HomeAnimation({ setBlackBackground, onAnimationComplete 
             {showTrees && (
                 <>
                     <motion.img
-                        src="src/assets/BigTrees.png"
+                        src="/assets/BigTrees.png"
                         alt="Big Trees"
                         className="big-trees"
                         initial={{ scale: 2 }} 
@@ -77,7 +77,7 @@ export default function HomeAnimation({ setBlackBackground, onAnimationComplete 
                         transition={{ duration: 1.5, ease: "easeInOut" }}
                     />
                     <motion.img
-                        src="src/assets/Left.png"
+                        src="/assets/left.png"
                         alt="Left Tree"
                         className="left-tree"
                         initial={{ x: '-100vw' }} 
@@ -85,7 +85,7 @@ export default function HomeAnimation({ setBlackBackground, onAnimationComplete 
                         transition={{ duration: 1.5, ease: "easeInOut" }} 
                     />
                     <motion.img
-                        src="src/assets/Right.png"
+                        src="/assets/right.png"
                         alt="Right Tree"
                         className="right-tree"
                         initial={{ x: '100vw' }} 
@@ -97,7 +97,7 @@ export default function HomeAnimation({ setBlackBackground, onAnimationComplete 
 
             {showKids && (
                 <motion.img
-                    src="src/assets/Cycle.png"
+                    src="/assets/Cycle.png"
                     alt="Cycle"
                     className="Cycle"
                     initial={{ x: '-100vw', y: '35vh'}} 
@@ -113,7 +113,7 @@ export default function HomeAnimation({ setBlackBackground, onAnimationComplete 
             {kidsReturn && (
                 <>
                     <motion.img
-                        src="src/assets/kids.png"
+                        src="/assets/kids.png"
                         alt="Kids"
                         className="kids"
                         initial={{ y: '100vh' }} 
@@ -125,7 +125,7 @@ export default function HomeAnimation({ setBlackBackground, onAnimationComplete 
                         }}
                     />
                     <motion.img 
-                        src="src/assets/path.png" 
+                        src="/assets/path.png" 
                         alt="Path" 
                         className="path"
                         initial={{ y: '30vh' }} 
@@ -137,7 +137,7 @@ export default function HomeAnimation({ setBlackBackground, onAnimationComplete 
 
             {alienAppears && (
                 <motion.img
-                    src="src/assets/CloseAlien.png"
+                    src="/assets/CloseAlien.png"
                     alt="Alien"
                     className="alien"
                     initial={{ y: '-30vh', scale: 1.8, opacity: 0 }}  
@@ -159,7 +159,7 @@ export default function HomeAnimation({ setBlackBackground, onAnimationComplete 
 
             {showTreeTrunk && (
                 <motion.img
-                    src="src/assets/treetrunk.png"
+                    src="/assets/TreeTrunk.png"
                     alt="Tree Trunk"
                     className="treetrunk"
                     initial={{ opacity: 0 }}
