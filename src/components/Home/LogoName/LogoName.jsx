@@ -53,7 +53,7 @@
 
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // Import AOS styles
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ReactCardFlip from 'react-card-flip';
 import './LogoName.css';
 

@@ -4,5 +4,12 @@
     font-weight: 800;
 }
 
+.home {
+    background-image: url('./assets/Default.png');
+    background-position: center;    /* Center the image */
+    background-size: cover;
+    height: 100vh;         /* Cover the entire viewport */
+    background-repeat: no-repeat;
+}
 
 

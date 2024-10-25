@@ -2,7 +2,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; // Import AOS CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // This includes both Bootstrap JS and Popper.js
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import './Carousel.css';
 
 const BroadcastBattlefieldCarousel = () => {

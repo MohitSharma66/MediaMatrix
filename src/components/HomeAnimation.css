@@ -16,7 +16,7 @@
 .kids {
     position: absolute;
     bottom: 0;
-    height: 30svh; /* Set kids towards the bottom of the screen */
+    height: 40svh; /* Set kids towards the bottom of the screen */
     max-width: 80%;
 }
 

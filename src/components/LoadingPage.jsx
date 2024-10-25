@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import React from 'react';
 
 const LoadingPage = () => {
   // Animation for letters to come from random directions and swirl
