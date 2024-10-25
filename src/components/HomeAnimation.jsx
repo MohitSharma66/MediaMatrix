@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import './HomeAnimation.css';
 
-export default function HomeAnimation({ setBlackBackground, onAnimationComplete }) {
+export default function HomeAnimation({ blackBackground, setBlackBackground, onAnimationComplete }) {
     const [showTreeTrunk, setShowTreeTrunk] = useState(false);
     const [showEverything, setShowEverything] = useState(false); 
     const [showKids, setShowKids] = useState(false); 
@@ -10,7 +10,6 @@ export default function HomeAnimation({ setBlackBackground, onAnimationComplete 
     const [showTrees, setShowTrees] = useState(true); 
     const [kidsReturn, setKidsReturn] = useState(false); 
     const [alienAppears, setAlienAppears] = useState(false); 
-    const [animationFinished, setAnimationFinished] = useState(false); // New state
 
     const startAnimation = () => {
         // Reset all states
@@ -45,7 +44,7 @@ export default function HomeAnimation({ setBlackBackground, onAnimationComplete 
             setKidsReturn(false); 
             setAlienAppears(false); 
             setShowEverything(false); 
-            setBlackBackground(true);  
+            setBlackBackground(true); // Set black background here
         }, 10000); 
         
         setTimeout(() => {
@@ -54,8 +53,6 @@ export default function HomeAnimation({ setBlackBackground, onAnimationComplete 
         
         setTimeout(() => {
             setShowTreeTrunk(false); 
-            setBlackBackground(false); 
-            setAnimationFinished(true); // Set animation finished
             onAnimationComplete(); // Call the callback
         }, 14000);
     };
@@ -65,7 +62,7 @@ export default function HomeAnimation({ setBlackBackground, onAnimationComplete 
     }, [setBlackBackground]);
 
     return (
-        <div className="animation-container">
+        <div className={`animation-container ${blackBackground ? 'black-background' : ''}`}>
             {showTrees && (
                 <>
                     <motion.img
@@ -155,7 +152,6 @@ export default function HomeAnimation({ setBlackBackground, onAnimationComplete 
                     }}
                 />
             )}
-
 
             {showTreeTrunk && (
                 <motion.img

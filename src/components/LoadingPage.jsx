@@ -48,6 +48,7 @@ const LoadingPage = () => {
         autoPlay 
         loop 
         muted 
+        preload="auto"
         style={{
           position: 'absolute',
           top: 0,
@@ -58,8 +59,8 @@ const LoadingPage = () => {
           zIndex: -1  // Sends the video to the background
         }}
       >
-        <source src="\assets\LoadingPageBackground.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
+      <source src="\assets\LoadingPageBackground.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
       </video>
 
       <div style={{ 

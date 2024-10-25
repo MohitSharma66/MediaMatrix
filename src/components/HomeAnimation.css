@@ -9,7 +9,7 @@
     transition: background-color 1s ease; /* Smooth transition to black */
 }
 
-.animation-container.black-background {
+.animation-container .black-background {
     background-color: black; /* Background turns black */
 }
 
@@ -43,7 +43,7 @@
 
 .treetrunk {
     position: absolute;
-    top: 40%; /* Move the tree trunk slightly higher up */
+    top: 50%; /* Move the tree trunk slightly higher up */
     left: 50%; /* Centered horizontally */
     transform: translate(-50%, -50%); /* Adjust for exact centering */
     width: 80%;
