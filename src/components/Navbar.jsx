@@ -1,23 +1,21 @@
+import MenuIcon from '@mui/icons-material/Menu'; // Import Menu Icon
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
+import IconButton from '@mui/material/IconButton'; // Import IconButton
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Hamburger from 'hamburger-react';
 import PropTypes from 'prop-types';
 import * as React from 'react';
-import "./navbar.css";
-import {NavLink} from "react-router-dom"
+import { NavLink } from "react-router-dom";
+import "./Navbar.css";
 
-const navItems = ['About Us', 'Past Event', 'Team', 'FAQ', 'Contact Us'];
+const navItems = ['Home', 'Registration', 'Event', 'Contact'];
 
 function DrawerAppBar(props) {
   const { window } = props;
@@ -28,8 +26,6 @@ function DrawerAppBar(props) {
   const handleDrawerToggle = () => {
     setMobileOpen(prevState => !prevState);
   };
-
-  const [isOpen, setOpen] = React.useState(false);
 
   const handleScroll = () => {
     const scrollTop = window.scrollY;
@@ -51,19 +47,41 @@ function DrawerAppBar(props) {
     }
   }, [window]);
 
+  const rgbaColor = (color, opacity) => {
+    const hexToRgb = (hex) => {
+      let r = 0, g = 0, b = 0;
+      if (hex.length === 4) {
+        r = parseInt(hex[1] + hex[1], 16);
+        g = parseInt(hex[2] + hex[2], 16);
+        b = parseInt(hex[3] + hex[3], 16);
+      } else if (hex.length === 7) {
+        r = parseInt(hex[1] + hex[2], 16);
+        g = parseInt(hex[3] + hex[4], 16);
+        b = parseInt(hex[5] + hex[6], 16);
+      }
+      return `${r}, ${g}, ${b}`;
+    };
+  
+    return `rgba(${hexToRgb(color)}, ${opacity})`;
+  };
+
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <div className="ham-head" style={{ display: "flex" }}>
         <Typography variant="h6" sx={{ my: 2, marginLeft: "auto", marginRight: "auto", fontFamily: "Montserrat" }}>
-          Media Matrix
+          MEDIA MATRIX
         </Typography>
       </div>
       <Divider />
       <List>
-      <ListItem><ListItemButton href="/" onClick={()=>setOpen(false)}>HOME</ListItemButton></ListItem>
-         <ListItem><ListItemButton href="https://forms.gle/aEGetCXedtxnXv7cA" onClick={()=>setOpen(false)}>REGISTER</ListItemButton></ListItem>
-        <ListItem><ListItemButton href="/event" onClick={()=>setOpen(false)}>EVENTS</ListItemButton></ListItem>
-        <ListItem><ListItemButton href="#Contact Us" onClick={()=>setOpen(false)}>CONTACT US</ListItemButton></ListItem>
+         <ListItem><ListItemButton href="/event" onClick={()=>setMobileOpen(false)}>Event</ListItemButton></ListItem>
+         <a href="https://forms.gle/aEGetCXedtxnXv7cA" target="_blank" rel="noopener noreferrer">
+          <ListItem>
+          <ListItemButton onClick={() => setMobileOpen(false)}>Registration</ListItemButton>
+          </ListItem>
+        </a>        
+        <NavLink to="/"><ListItem><ListItemButton onClick={()=>setMobileOpen(false)}>Home</ListItemButton></ListItem></NavLink>
+        <ListItem><ListItemButton href="#Contact" onClick={()=>setMobileOpen(false)}>Contact</ListItemButton></ListItem>
       </List>
     </Box>
   );
@@ -74,50 +92,52 @@ function DrawerAppBar(props) {
     <div className='nav'>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
-        <AppBar component="nav" sx={{
-          height: "8vh",
-          background: backgroundColor, // Should change based on scroll
-          display: "flex",
-          justifyContent: "center",
-          boxShadow: "0",
-          zIndex: "1201",
-          transition: "background 0.3s ease"
-        }}>
-          <Toolbar>
-            <div className="ham">
-              <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                edge="start"
-                onClick={handleDrawerToggle}
-                sx={{ mr: 2, display: { sm: 'none' }, zIndex: "1201" }}
-              >
-                <Hamburger toggled={isOpen} toggle={setOpen}
-                  aria-label="open drawer"
-                  edge="start"
-                  className="hamburger-icon"
-                  sx={{ zIndex: "1201" }}
-                />
-              </IconButton>
-            </div>
-            {/* <div className="nav-logo">
-              <img src={Logo} alt="Logo" />
-            </div> */}
-            <Box sx={{ display: { xs: 'none', sm: 'flex', background: "transparent",
-                    borderRadius: "20px",
-                    boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
-                    backdropFilter: "blur(5.4px)",
-                    webkitBackdropFilter: "blur(5.4px)",
-                     marginRight:"auto", gap:"2vh",padding:"0.5vh",border: "3px solid black",margin:"auto", width:"100%", borderTop:"none"} }}>
-                 <ul style={{display:'flex', listStyle:"none", gap:"2.5vh", margin:"0.5vh", paddingLeft:"0"}} className='nav-list'>
-                 <NavLink to="/"><li>Home</li></NavLink>
-                 <a href="https://forms.gle/aEGetCXedtxnXv7cA" target="_blank" rel="noopener noreferrer"><li>Registration</li></a>        
-                 <a href="/event"><li>Event</li></a>
-                 <a href="#Contact"><li>Contact Us</li></a>
-                </ul>
+        <AppBar
+          component="nav"
+          sx={{
+            height: "8vh",
+            width: "100%",
+            background: backgroundColor,
+            boxShadow: "0",
+            zIndex: "1201",
+            transition: "background 0.3s ease",
+          }}
+        >
+          <Toolbar sx={{ display: "flex", justifyContent: "center", width: "100%" }}>
+            {/* Hamburger menu button for mobile */}
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ display: { xs: 'block', sm: 'none' }, marginRight: 'auto' }}
+            >
+              <MenuIcon />
+            </IconButton>
+
+            {/* Normal navbar for larger screens */}
+            <Box 
+              sx={{
+                display: { xs: 'none', sm: 'flex' },
+                width: '100%',
+                background: "transparent",
+                gap: "2rem",
+                border: `3px solid ${rgbaColor(backgroundColor, 2)}`,
+                borderBottomLeftRadius: "20px",
+                borderBottomRightRadius: "20px",
+                padding: "1vh",
+              }}
+            >
+              <ul className="nav-list">
+                <NavLink to="/"><li>Home</li></NavLink>
+                <a href="https://forms.gle/aEGetCXedtxnXv7cA" target="_blank" rel="noopener noreferrer"><li>Registration</li></a>        
+                <a href="/event"><li>Event</li></a>
+                <a href="#Contact"><li>Contact</li></a>
+              </ul>
             </Box>
           </Toolbar>
         </AppBar>
+
         <nav>
           <Drawer
             container={container}
@@ -126,20 +146,18 @@ function DrawerAppBar(props) {
             onClose={handleDrawerToggle}
             anchor="right"
             ModalProps={{
-              keepMounted: false, // Better open performance on mobile.
+              keepMounted: false, 
             }}
             sx={{
               display: { xs: 'block', sm: 'none' },
               '& .MuiDrawer-paper': {
                 boxSizing: 'border-box',
                 width: "100%",
-               /* From https://css.glass */
-background: "rgba(0, 0, 0, 0.43)",
-borderRadius: "16px",
-boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
-backdropFilter: "blur(5.8px)",
-webkitBackdropFilter: "blur(5.8px)",
-border: "1px solid rgba(0, 0, 0, 0.3)",
+                background: "rgba(88, 0, 140, 0.6)",
+                boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+                backdropFilter: "blur(6px)",
+                webkitBackdropFilter: "blur(6px)",
+                border: "1px solid red",
                 color: "white",
                 zIndex: "1"
               }

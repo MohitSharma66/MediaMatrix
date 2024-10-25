@@ -1,3 +1,4 @@
+/* General Styles */
 .animation-container {
     position: relative;
     width: 100%;
@@ -9,13 +10,15 @@
     position: absolute;
 }
 
+/* For larger screens (desktops/laptops) */
 .big-trees-down {
-    width: 100%;
+    height: 100vh; /* Full height */
+    width: 100%; /* This stays full width */
 }
 
 .left-tree-down {
     width: 40%;
-    top: -45vh;
+    top: -25vh;
     left: -3vh;
 }
 
@@ -30,10 +33,93 @@
     top: -8vh;
 }
 
-/* Make sure the monster image doesn't overlap with the navbar */
 .monster-down {
     width: 100%;
-    height: 90%; /* Use auto to maintain aspect ratio */
+    height: 90%; /* Maintain aspect ratio */
     bottom: 10vh;
-    z-index: 1; /* Ensures the monster is above other images but not the navbar */
+    z-index: 1;
+}
+
+/* Responsive styles for medium-sized screens (tablets) */
+@media (max-width: 1024px) {
+    .left-tree-down {
+        width: 50%;
+        top: -20vh;
+        left: -8vw;
+    }
+
+    .right-tree-down {
+        width: 35%;
+        top: -10vh;
+        right: -5vw;
+    }
+
+    .big-trees-down {
+        width: 100%;
+        height: 100vh;
+        bottom: 10vh; /* Adjust height for smaller screens */
+    }
+
+    .running-down {
+        width: 60%;
+        top: 0vh;
+    }
+
+    .monster-down {
+        width: 100%;
+        height: 95%;
+        bottom: 8vh;
+    }
+}
+
+/* Responsive styles for small screens (mobile devices) */
+@media (max-width: 768px) {
+    .left-tree-down {
+        width: 50%;
+        top: -20vh;
+        left: -5vw;
+    }
+
+    .right-tree-down {
+        width: 30%;
+        top: -8vh;
+        right: 5vw;
+    }
+
+    .running-down {
+        width: 70%;
+        top: 0vh;
+    }
+
+    .monster-down {
+        width: 100%;
+        height: 95%;
+        bottom: 5vh;
+    }
+}
+
+/* Responsive styles for extra-small screens (small mobile devices) */
+@media (max-width: 480px) {
+    .left-tree-down {
+        width: 65%;
+        top: -25vh;
+        left: -7vw;
+    }
+
+    .right-tree-down {
+        width: 45%;
+        top: -9vh;
+        right: 2vw;
+    }
+
+    .running-down {
+        width: 75%;
+        top: -2vh;
+    }
+
+    .monster-down {
+        width: 100%;
+        height: 95%;
+        bottom: 5vh;
+    }
 }

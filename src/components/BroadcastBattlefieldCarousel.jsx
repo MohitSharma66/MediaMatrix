@@ -3,6 +3,7 @@ import 'aos/dist/aos.css'; // Import AOS CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // This includes both Bootstrap JS and Popper.js
 import React, { useEffect } from 'react';
+import './Carousel.css';
 
 const BroadcastBattlefieldCarousel = () => {
   
@@ -19,7 +20,7 @@ const BroadcastBattlefieldCarousel = () => {
         data-aos="fade-down" // Add AOS animation
       />
       
-      <div id="carouselExampleFade" className="carousel slide carousel-fade mx-auto" style={{ maxWidth: '70em' }} data-bs-ride="carousel">
+      <div id="carouselExampleFade" className="carousel slide carousel-fade mx-auto" style={{ maxWidth: '70em', display: 'flex', justifyContent: 'center', alignItems: 'center' }} data-bs-ride="carousel">
         <div className="carousel-inner">
           {/* First carousel item */}
           <div className="carousel-item active" data-aos="fade-up">
@@ -73,13 +74,13 @@ const BroadcastBattlefieldCarousel = () => {
         {/* Carousel Controls */}
         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
           <span className="carousel-control-prev" aria-hidden="true">
-            <img src="src/assets/Arrow2.png" style={{transform: 'rotate(90deg)', width: '4rem', height: '4rem', position: 'absolute', top: '50%', left: '-7rem'}} alt="Arrow"/>
+            <img src="src/assets/Arrow2.png" className='arrowLeft' style={{transform: 'rotate(90deg)', width: '4rem', height: '4rem', position: 'absolute', top: '50%', left: '-4rem'}} alt="Arrow"/>
           </span>
           <span className="visually-hidden">Previous</span>
         </button>
         <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
           <span className="carousel-control-next" aria-hidden="true">
-            <img src="src/assets/Arrow.png" style={{transform: 'rotate(90deg)', width: '4rem', height: '4rem', position: 'absolute', top: '50%', right: '-7rem'}} alt="Arrow"/>
+            <img src="src/assets/Arrow.png" className='arrowRight' style={{transform: 'rotate(90deg)', width: '4rem', height: '4rem', position: 'absolute', top: '50%', right: '-4rem'}} alt="Arrow"/>
           </span>
           <span className="visually-hidden">Next</span>
         </button>
