@@ -3,6 +3,10 @@
   src: url('../../../assets/Fonts/ITCBenguiatStdBoldCn.OTF');
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 
 body {
   background-image: url('./assets/DefaultRed.png');

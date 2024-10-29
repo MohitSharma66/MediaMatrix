@@ -14,7 +14,7 @@ import Typography from '@mui/material/Typography';
 import Hamburger from 'hamburger-react';
 import PropTypes from 'prop-types';
 import * as React from 'react';
-import "./navbar.css";
+import "./Navbar.css";
 import {NavLink} from "react-router-dom"
 
 function DrawerAppBar(props) {
@@ -109,7 +109,7 @@ function DrawerAppBar(props) {
                  <ul style={{display:'flex', listStyle:"none", gap:"10vh", margin:"0.5vh", paddingLeft:"0", fontFamily:"Poppins"}} className='nav-list'>
                  <NavLink to="/"><li>Home</li></NavLink>
                  <a href="/event"><li>Event</li></a>
-                 <a href="#Contact"><li>Contact Us</li></a>
+                 <a href="#contact"><li>Contact Us</li></a>
                 </ul>
             </Box>
           </Toolbar>

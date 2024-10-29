@@ -12,7 +12,7 @@
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
-    "@firecms/neat": "^0.3.0",
+    "@johnn-e/react-mesh-gradient": "^1.1.1",
     "@mui/icons-material": "^6.1.5",
     "@mui/material": "^6.1.5",
     "@mui/system": "^6.1.4",

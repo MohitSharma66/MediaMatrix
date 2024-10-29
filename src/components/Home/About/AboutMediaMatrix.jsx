@@ -14,7 +14,7 @@ export default function AboutMediaMatrix() {
   }, []); // Add an empty dependency array to run once on mount
 
   return (
-    <section className="about-us" id="AboutUs" style={{ backgroundColor }}>
+    <section className="about-us" id="about" style={{ backgroundColor }}>
       <div className="about-us-content">
         <h1 className="about-us-title" data-aos="fade-up" data-aos-duration="1000">
           ABOUT US
