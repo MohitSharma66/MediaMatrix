@@ -1,0 +1,14 @@
+.track-text {
+    color: white;
+    font-size: 40px;
+    font-weight: 800;
+}
+
+.home {
+    position: relative; /* Context for positioning children */
+    width: 100%;
+    /* background-image: url('../../assets/Main/DefaultRed.png'); */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+

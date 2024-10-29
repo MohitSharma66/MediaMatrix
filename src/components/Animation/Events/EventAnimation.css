@@ -1,0 +1,48 @@
+/* General Styles */
+.animation-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.big-trees-down, .left-tree-down, .right-tree-down, .running-down, .monster-down {
+    position: absolute;
+}
+
+/* For larger screens (desktops/laptops) */
+.big-trees-down {
+    height: 100vh; /* Full height */
+    height: 100svh;
+    width: 100%; /* This stays full width */
+}
+
+.left-tree-down {
+    width: 40%;
+    top: -30vh;
+    height: 100svh;
+    left: -3vh;
+}
+
+.right-tree-down {
+    width: 30%;
+    top: -12vh;
+    height: 100svh;
+    right: 3vh;
+}
+
+.running-down {
+    width: 50%;
+    height: 60svh;
+    top: -8vh;
+}
+
+.monster-down {
+    width: 100%;
+    height: 90%;
+    height: 100svh; /* Maintain aspect ratio */
+    bottom: 10vh;
+    z-index: 1;
+}
+
+/* Responsive styles for medium-sized screens (tablets) */

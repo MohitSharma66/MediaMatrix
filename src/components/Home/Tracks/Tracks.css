@@ -95,7 +95,7 @@ margin: 5vh;
 
 .image_wrapper img {
   width: 70%;
-  height: 100px;
+  height: 200px;
   border-radius: 20px;
 }
 .marquee{
@@ -134,7 +134,7 @@ margin: 5vh;
   }
   .image_wrapper img {
     width: 70%;
-    height: 80px;
+    height: 150px;
     border-radius: 20px;
   }
   .image_wrapper {

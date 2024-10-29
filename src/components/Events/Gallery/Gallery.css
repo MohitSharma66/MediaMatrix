@@ -1,0 +1,95 @@
+.heading{
+    font-size: 4vw;
+    color:#FFFFFF;
+    font-weight: 300;
+    font-family: Anton;
+    width: 100%;
+    text-align:start;
+    letter-spacing: 0.2rem;
+}
+.text{
+    width: 84vw;
+    margin: auto;
+    margin-bottom: 4%;
+}
+.slick-dots {
+    bottom: -30px; /* Adjust as needed */
+    border-radius: 50%;
+    visibility: hidden;
+  }
+  
+  /* Individual dot */
+  .slick-dots li {
+    margin: 0 5px; /* Adjust spacing between dots if needed */
+  }
+  
+  /* Dot button */
+  .slick-dots li button {
+    background-color:#FFFFFF ; /* Default dot color */
+    border-radius: 50%;
+  }
+  
+  /* Active dot */
+  .slick-dots li.slick-active button {
+    background-color: whitesmoke; /* Color of the active dot */
+    border-radius: 50%;
+  }
+  .slider-item {
+    width: 90%;
+  }
+  
+  .slider-item img {
+    width: 100%;
+    border-radius: 0.1rem;
+    padding: 10px;
+    border: 3px solid blue; /* Add border here */
+    box-sizing: border-box; /* Ensure padding and border are included in width/height */
+  }
+
+  .boxed{
+    display:flex;
+    align-items: center;
+  }
+
+  .slide-text{
+    display: flex;
+    flex-direction: column;
+    gap:2vh;
+  }
+
+  .slide-tex{
+    color:white;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .slide-title{
+    color: white;
+    font-size: 30px;
+    font-weight: 800;
+  }
+
+  .Slider{
+    height: 100%;
+    margin-top: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width:630px) {
+    .Slider .heading{
+      font-size: 7vw;
+      letter-spacing: 0.1rem;
+    }
+
+    .boxed{
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slide-image{
+      height:30vh !important;
+      width: 98% !important;
+    }
+  }

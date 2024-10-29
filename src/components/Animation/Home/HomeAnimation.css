@@ -1,0 +1,84 @@
+.animation-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full height of the viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: background-color 1s ease; /* Smooth transition to black */
+}
+
+.animation-container .black-background {
+    background-color: black; /* Background turns black */
+}
+
+.kids {
+    position: absolute;
+    bottom: 0;
+    height: 40svh; /* Set kids towards the bottom of the screen */
+    max-width: 80%;
+}
+
+.Cycle {
+    position: absolute;
+    bottom: -6vh;
+    max-width: 80%;
+    height: 100svh;
+}
+
+.path {
+    position: absolute;
+    bottom: -5vh;  /* Appears just below the kids */
+    width: 95%;    /* Adjust width as needed */
+    height: 50svh;
+}
+
+.alien {
+    position: absolute;
+    top: 0; /* Set alien towards the top */
+    max-width: 90%; 
+    height: 100svh;
+}
+
+.treetrunk {
+    position: absolute;
+    top: 50%; /* Move the tree trunk slightly higher up */
+    left: 50%; /* Centered horizontally */
+    transform: translate(-50%, -50%); /* Adjust for exact centering */
+    width: 80%;
+    opacity: 0;
+    height: 100svh;
+}
+
+.big-trees {
+    position: absolute;
+    bottom: 0; 
+    left: 0%; /* Centers the element horizontally */
+    transform: translateX(-50%); /* Corrects for the horizontal centering */
+    width: 100%; /* Adjust the width as needed */
+    height: 100svh;
+}
+
+.left-tree, .right-tree {
+    position: absolute;
+    bottom: -10vh;
+    width: 30%;
+     /* Adjust width as needed */
+     height: 100svh;
+}
+
+.left-tree {
+    width: 45%; /* Increase the width to make the left tree larger */
+    height: auto;
+    bottom: -25vh;
+    right: 55%; /* Adjusted to ensure better alignment */
+    height: 100svh;
+}
+
+.right-tree {
+    right: 5%;
+    bottom: -10vh;
+     /* Adjusted to ensure better alignment */
+     height: 100svh;
+}
