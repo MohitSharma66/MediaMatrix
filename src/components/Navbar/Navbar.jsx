@@ -15,7 +15,7 @@ import Hamburger from 'hamburger-react';
 import PropTypes from 'prop-types';
 import * as React from 'react';
 import "./Navbar.css";
-import {NavLink} from "react-router-dom"
+import {Link, NavLink} from "react-router-dom"
 
 function DrawerAppBar(props) {
   const { window } = props;
@@ -108,7 +108,7 @@ function DrawerAppBar(props) {
                      marginRight:"auto", gap:"2vh",padding:"0.5vh",border: "1px solid red",margin:"auto", width:"100%", borderTop:"none"} }}>
                  <ul style={{display:'flex', listStyle:"none", gap:"10vh", margin:"0.5vh", paddingLeft:"0", fontFamily:"Poppins"}} className='nav-list'>
                  <NavLink to="/"><li>Home</li></NavLink>
-                 <a href="/event"><li>Event</li></a>
+                 <NavLink to="/event"><li>Event</li></NavLink>
                  <a href="#contact"><li>Contact Us</li></a>
                 </ul>
             </Box>
