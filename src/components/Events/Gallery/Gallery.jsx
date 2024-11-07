@@ -6,6 +6,7 @@ import "./Gallery.css";
 import images from "../../../data/EventData.jsx"
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import ContactUs from '../../ContactUs/ContactUs.jsx';
 AOS.init({
   once: true
 });
@@ -50,6 +51,7 @@ const Gallery = () => {
   ;
 
   return (
+    <>
     <div className='Slider' id="gallery">
     <div data-aos="zoom-in" data-aos-duration="300"style={{ width: '86vw', margin: '0 auto'  }}  >
       <Slider {...settings}>
@@ -91,6 +93,8 @@ const Gallery = () => {
       </Slider>
     </div>
     </div>
+    <ContactUs/>
+    </>
   );
 };
 

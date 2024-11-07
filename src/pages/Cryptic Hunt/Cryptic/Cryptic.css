@@ -1,0 +1,129 @@
+.cryptic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+    background-size: cover;
+  }
+
+  body{
+    background-color: black;
+  }
+
+  .cryptic span{
+        -webkit-text-stroke: 2px white; /* White stroke with 2px thickness */
+        text-align: center;
+        font-size: 150px;
+  }
+
+.cube-loader {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    transform: rotateX(-30deg);
+    animation: animate 4s linear infinite;
+  }
+  
+  @keyframes animate {
+    0% {
+      transform: rotateX(-30deg) rotateY(0);
+    }
+  
+    100% {
+      transform: rotateX(-30deg) rotateY(360deg);
+    }
+  }
+  
+  .cube-loader .cube-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+      /* top: 0;
+      left: 0; */
+    transform-style: preserve-3d;
+  }
+  
+  .cube-loader .cube-wrapper .cube-span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+      /* top: 0;
+      left: 0; */
+      /* width 75px / 2 = 37.5px */
+    transform: rotateY(calc(90deg * var(--i))) translateZ(37.5px);
+    background: linear-gradient(to bottom,
+              hsl(0, 0%, 0%) 0%,
+              hsl(0, 0%, 0%) 5.5%,
+              hsl(0, 0%, 0%) 12.1%,
+              hsl(0, 0%, 100%) 100%,
+              hsl(0, 0%, 0%) 27.9%,
+              hsl(0, 0%, 0%) 36.6%,
+              hsl(0, 0%, 0%) 45.6%,
+              hsl(0, 0%, 100%) 100%,
+              hsl(0, 0%, 0%) 63.4%,
+              hsl(0, 0%, 0%) 71.7%,
+              hsl(0, 0%, 0%) 79.4%,
+              hsl(0, 0%, 100%) 100%,
+              hsl(0, 0%, 0%) 100%,
+              hsl(0, 0%, 0%) 100%,
+              hsl(0, 0%, 0%) 100%,
+              hsl(0, 0%, 100%) 100%);
+  }
+  
+  .cube-top {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: hsl(330, 3.13%, 25.1%) 0%;
+      /* width 75px / 2 = 37.5px */
+    transform: rotateX(90deg) translateZ(37.5px);
+    transform-style: preserve-3d;
+  }
+  
+  .cube-top::before {
+    content: '';
+    position: absolute;
+      /* u can choose any size */
+    width: 200px;
+    height: 200px;
+    background: hsl(0, 0%, 0%) 19.6%;
+    transform: translateZ(-90px);
+    filter: blur(10px);
+    box-shadow: 0 0 10px #323232,
+          0 0 20px hsl(0, 0%, 100%) 19.6%,
+          0 0 30px #323232,
+          0 0 40px hsl(0, 0%, 100%) 19.6%;
+  }
+  
+  
+
+.container-cryptic {
+    width: 100%;
+    height: 100svh;
+    --s: 100px; /* control the size */
+    --c1: #480e0c;
+    --c2: black;
+  
+    --_g: var(--c2) 6% 14%, var(--c1) 16% 24%, var(--c2) 26% 34%,
+      var(--c1) 36% 44%, var(--c2) 46% 54%, var(--c1) 56% 64%, var(--c2) 66% 74%,
+      var(--c1) 76% 84%, var(--c2) 86% 94%;
+    background: radial-gradient(
+        100% 100% at 100% 0,
+        var(--c1) 4%,
+        var(--_g),
+        #0008 96%,
+        #0000
+      ),
+      radial-gradient(
+          100% 100% at 0 100%,
+          #0000,
+          #0008 4%,
+          var(--_g),
+          var(--c1) 96%
+        )
+        var(--c1);
+    background-size: var(--s) var(--s);
+  }
+  
+  

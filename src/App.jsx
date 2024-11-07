@@ -5,6 +5,12 @@ import ScrollToTop from "react-scroll-to-top";
 import zIndex from '@mui/material/styles/zIndex';
 import Event from './pages/Events/Event';
 import ContactUs from './components/ContactUs/ContactUs';
+import Cryptic from './pages/Cryptic Hunt/Cryptic/Cryptic';
+import Level2 from './pages/Cryptic Hunt/Level2/Level2';
+import Level3 from './pages/Cryptic Hunt/Level3/Level3';
+import Level1 from './pages/Cryptic Hunt/Level1/Level1';
+import Level4 from './pages/Cryptic Hunt/Level4/Level4';
+import Level5 from './pages/Cryptic Hunt/Level5/Level5';
 
 
 function App() {
@@ -22,9 +28,15 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/event" element={<Event />} />
+        <Route path="/event" element={<Event/>} />
+        <Route path="/cryptic" element={<Cryptic/>} />
+        <Route path="/erZs5CmD5U3IM0M" element={<Level1/>}/>
+        <Route path="/Dh7PD9bm3y" element={<Level2/>} />
+        <Route path="/balsnikwah" element={<Level3/>} />
+        <Route path="/YRyjGCIXFvI1o31+11k" element={<Level4/>}/>
+        <Route path="/XohaoZYciCu0oFa" element={<Level5/>}/>
       </Routes>
-    <Music/>
+    <Music/> 
     <ScrollToTop className="scroll-top" smooth={true} color="red" viewBox="0 0 49 72" svgPath={d} style={scrollStyle}/>
      </>
   );

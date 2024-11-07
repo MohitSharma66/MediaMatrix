@@ -1,0 +1,10 @@
+.level4-img{
+    background-image: url("../../../assets/Chess.png");
+    height: 100svh;
+    width: 100%;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}

@@ -58,9 +58,10 @@ function DrawerAppBar(props) {
       </div>
       <Divider />
       <List>
-      <ListItem><Button onClick={()=>setOpen(false)} sx={{color:"white"}}>HOME</Button></ListItem>
-        <ListItem><Button onClick={()=>setOpen(false)} sx={{color:"white"}}>EVENTS</Button></ListItem>
-        <ListItem><Button onClick={()=>setOpen(false)} sx={{color:"white"}}>CONTACT US</Button></ListItem>
+      <NavLink to="/"><ListItem><Button onClick={()=>setOpen(false)} sx={{color:"white"}}>HOME</Button></ListItem></NavLink>
+        <NavLink to="/event"><ListItem><Button onClick={()=>setOpen(false)} sx={{color:"white"}}>EVENTS</Button></ListItem></NavLink>
+        <NavLink to="#contact"><ListItem><Button onClick={()=>setOpen(false)} sx={{color:"white"}}>CONTACT US</Button></ListItem></NavLink>
+        <NavLink to="/cryptic"><ListItem><Button onClick={()=>setOpen(false)} sx={{color:"white"}}>Cryptic Hunt</Button></ListItem></NavLink>
       </List>
     </Box>
   );
@@ -110,6 +111,7 @@ function DrawerAppBar(props) {
                  <NavLink to="/"><li>Home</li></NavLink>
                  <NavLink to="/event"><li>Event</li></NavLink>
                  <a href="#contact"><li>Contact Us</li></a>
+                 <NavLink to="/cryptic"><li>Cryptic Hunt</li></NavLink>
                 </ul>
             </Box>
           </Toolbar>
