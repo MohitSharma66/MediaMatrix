@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import { MeshGradientRenderer } from '@johnn-e/react-mesh-gradient';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import React, { useEffect, useState } from 'react';
+import HomeAnimation from '../../components/Animation/Home/HomeAnimation.jsx';
+import ContactUs from '../../components/ContactUs/ContactUs.jsx';
 import AboutMediaMatrix from '../../components/Home/About/AboutMediaMatrix.jsx';
 import LogoName from '../../components/Home/LogoName/LogoName.jsx';
+import Sponsors from '../../components/Home/Sponsors/Sponsors.jsx';
+import Tracks from "../../components/Home/Tracks/Tracks.jsx";
 import LoadingPage from '../../components/Loading/LoadingPage.jsx';
 import Navbar from '../../components/Navbar/Navbar.jsx';
-import Tracks from "../../components/Home/Tracks/Tracks.jsx";
-import { MeshGradientRenderer } from '@johnn-e/react-mesh-gradient';
 import BasicModal from '../../components/Popups/Popups.jsx';
 import './Home.css';
-import ContactUs from '../../components/ContactUs/ContactUs.jsx';
-import HomeAnimation from '../../components/Animation/Home/HomeAnimation.jsx';
 
 export default function Home() {
     const [loading, setLoading] = useState(true);
@@ -67,6 +68,10 @@ export default function Home() {
                             <LogoName handleOpen={handleOpen} />
                             {open && <BasicModal handleClose={handleClose} open={open}/>}
                             <AboutMediaMatrix />
+                            <div className="track-text">SPONSORS</div>
+                            <div className="marquee">
+                                <Sponsors />
+                            </div>
                             <div className="track-text">TRACKS</div>
                             <div className="marquee">
                                 <Tracks />
